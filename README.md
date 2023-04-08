@@ -1,1 +1,1 @@
-# tyba-challenge1-investment
+# tyba-challenge-investment
