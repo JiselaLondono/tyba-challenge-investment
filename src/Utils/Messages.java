@@ -2,7 +2,7 @@ package Utils;
 
 public enum Messages {
 
-    RECOMMENDATION("Sr(a). %s.\n- El producto en el que le recomendamos invertir es: %s.\n- El producto %s maneja un porcentaje de ganancia del %s%%, y en tu caso equivale a: $%s\n- Con esta primera inversión, sin importar el plazo, recibirás en total: $%s", "Recomendación de Inversión"),
+    RECOMMENDATION("Sr(a). %s:\n- El producto en el que le recomendamos invertir es: %s.\n- El producto '%s' maneja un porcentaje de ganancia del %s%%, y en tu caso equivale a: $%s\n- Con esta primera inversión, sin importar el plazo, recibirás en total: $%s", "Recomendación de Inversión"),
     REQUIRED_INFORMATION("Por favor diligencie todos los campos.", "Error - Información requerida"),
     REQUIRED_AMOUNT("El monto de inversión es requerido. Por favor intente nuevamente.", "Error - Monto requerido"),
     MINIMUM_AMOUNT("El monto mínimo de inversión es de $200,000.", "Advertencia - Monto mínimo"),

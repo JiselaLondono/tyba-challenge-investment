@@ -22,15 +22,10 @@ public class Main {
                 "Apellido:", lastName,
                 "Tipo de documento: ", documentTypeList
         };
-        dataValidate(clientDataForm, name, lastName, documentTypeList);
+        validateClientData(clientDataForm, name, lastName, documentTypeList);
     }
-
-    private static void getRecommendation(int value, String lastName) {
-        InvestmentProduct investmentProduct = getInvestmentProduct(value);
-        JOptionPane.showMessageDialog(null, String.format(RECOMMENDATION.getMessage(), lastName, investmentProduct.getName(), investmentProduct.getName(), String.format("%.2f", (investmentProduct.getPercentage() * 100)), getFormattedNumber(value * investmentProduct.getPercentage()), getCalculatedProfit(value, investmentProduct.getPercentage())), RECOMMENDATION.getTitle(), JOptionPane.INFORMATION_MESSAGE);
-    }
-
-    private static void dataValidate(Object[] form, JTextField name, JTextField lastName, JComboBox documentTypeList) {
+    
+    private static void validateClientData(Object[] form, JTextField name, JTextField lastName, JComboBox documentTypeList) {
         int option;
         do {
             option = JOptionPane.showConfirmDialog(null, form, MY_INVESTMENT.getTitle(), JOptionPane.OK_CANCEL_OPTION);
@@ -62,12 +57,17 @@ public class Main {
                 } else if (!amount.getText().matches(regex)) {
                     JOptionPane.showMessageDialog(null, String.format(INVALID_AMOUNT.getMessage(), amount.getText()), INVALID_AMOUNT.getTitle(), JOptionPane.ERROR_MESSAGE);
                 } else if (Integer.parseInt(amount.getText()) < 200000) {
-                    JOptionPane.showMessageDialog(null, MINIMUM_AMOUNT.getMessage());
+                    JOptionPane.showMessageDialog(null, MINIMUM_AMOUNT.getMessage(), MINIMUM_AMOUNT.getTitle(), JOptionPane.WARNING_MESSAGE);
                     amount.setText("");
                 } else {
                     getRecommendation(Integer.parseInt(amount.getText()), lastName);
                 }
             }
         } while ((amount.getText().isEmpty() || amount.getText().isBlank() || !amount.getText().matches(regex)) && option != JOptionPane.CANCEL_OPTION);
+    }
+
+    private static void getRecommendation(int value, String lastName) {
+        InvestmentProduct investmentProduct = getInvestmentProduct(value);
+        JOptionPane.showMessageDialog(null, String.format(RECOMMENDATION.getMessage(), lastName, investmentProduct.getName(), investmentProduct.getName(), String.format("%.2f", (investmentProduct.getPercentage() * 100)), getFormattedNumber(value * investmentProduct.getPercentage()), getCalculatedProfit(value, investmentProduct.getPercentage())), RECOMMENDATION.getTitle(), JOptionPane.INFORMATION_MESSAGE);
     }
 }
