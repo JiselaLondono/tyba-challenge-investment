@@ -24,7 +24,7 @@ public class Main {
         };
         validateClientData(clientDataForm, name, lastName, documentTypeList);
     }
-    
+
     private static void validateClientData(Object[] form, JTextField name, JTextField lastName, JComboBox documentTypeList) {
         int option;
         do {
