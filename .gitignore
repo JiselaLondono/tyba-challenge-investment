@@ -1,0 +1,15 @@
+# Java
+build/
+out/
+history/ 
+
+# Intellij idea
+.idea/
+logs/
+
+
+# Package files
+*.jar
+
+#Logs
+*.log
